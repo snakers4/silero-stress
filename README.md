@@ -1,4 +1,4 @@
-[![Mailing list : test](http://img.shields.io/badge/Email-gray.svg?style=for-the-badge&logo=gmail)](mailto:hello@silero.ai) [![Mailing list : test](http://img.shields.io/badge/Telegram-blue.svg?style=for-the-badge&logo=telegram)](https://t.me/silero_speech) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=for-the-badge)](https://github.com/snakers4/silero-stress/blob/master/LICENSE) [![downloads](https://img.shields.io/pypi/dm/silero-vad?style=for-the-badge)](https://pypi.org/project/silero-stress/) 
+[![Mailing list : test](http://img.shields.io/badge/Email-gray.svg?style=for-the-badge&logo=gmail)](mailto:hello@silero.ai) [![Mailing list : test](http://img.shields.io/badge/Telegram-blue.svg?style=for-the-badge&logo=telegram)](https://t.me/silero_speech) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=for-the-badge)](https://github.com/snakers4/silero-stress/blob/master/LICENSE) [![downloads](https://img.shields.io/pypi/dm/silero-stress?style=for-the-badge)](https://pypi.org/project/silero-stress/) 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/snakers4/silero-stress/blob/master/silero-stress.ipynb) [![Test Package](https://github.com/snakers4/silero-stress/actions/workflows/test.yml/badge.svg)](https://github.com/snakers4/silero-stress/actions/workflows/test.yml)
 
@@ -99,13 +99,10 @@ print(accentor(sample_sent))
 <h2 align="center">Links</h2>
 <br/>
 
-
-- [Examples and Dependencies](https://github.com/snakers4/silero-vad/wiki/Examples-and-Dependencies#dependencies)
-- [Quality Metrics](https://github.com/snakers4/silero-vad/wiki/Quality-Metrics)
-- [Performance Metrics](https://github.com/snakers4/silero-vad/wiki/Performance-Metrics)
-- [Versions and Available Models](https://github.com/snakers4/silero-vad/wiki/Version-history-and-Available-Models)
+- [Quality Metrics](https://github.com/snakers4/silero-stress/wiki/Quality-Metrics)
+- [Performance Metrics](https://github.com/snakers4/silero-stress/wiki/Performance-Metrics)
 - [Further reading](https://github.com/snakers4/silero-models#further-reading)
-- [FAQ](https://github.com/snakers4/silero-vad/wiki/FAQ)
+- [FAQ](https://github.com/snakers4/silero-stress/wiki/FAQ)
 
 <br/>
 <h2 align="center">Get In Touch</h2>
@@ -130,6 +127,8 @@ Please see our [wiki](https://github.com/snakers4/silero-models/wiki) for releva
 }
 ```
 
-**Vocabulary issues**
+<br/>
+<h2 align="center">Vocabulary issues</h2>
+<br/>
 
-If you seen any problems with any particular words, please send your examples as an [issue](https://github.com/snakers4/silero-stress/issues/new) or a  [discussion](https://github.com/snakers4/silero-stress/discussions/new).
+If you see any problems with any particular words, please send your examples as an [issue](https://github.com/snakers4/silero-stress/issues/new) or a [discussion](https://github.com/snakers4/silero-stress/discussions/new).
