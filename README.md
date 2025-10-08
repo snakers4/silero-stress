@@ -64,23 +64,19 @@ print(accentor(sample_sent))
 
 - **Wide coverage**
 
-    Silero Stress covers ~4M Russian known words and word forms with 100% accuracy. It also covers ~2K homographs with F1 score of 0.83, weighted per-word accuracy of 90% and total dataset accuracy of 90%.
+  Silero Stress covers ~4M known Russian words and word forms with 100% accuracy. It also covers ~2K homographs with F1 score of 0.83, weighted per-word accuracy of 90% and total dataset accuracy of 90%.
 
 - **Fast**
 
-  One ordinary word takes ~1ms to process, one sentence with one homograph takes ~20ms to process.  
+  On 1 CPU thread every ordinary word takes ~1ms to process, every sentence with one homograph takes ~20ms.  
 
-- **Lightweight**
+- **Lightweight and portable**
 
-  Total package is about 50BM in size, which is ~500x compression ratio, comparing total dictionary and train data size.
+  Total package is about 50MB in size, boasting ~1,000x compression ratio.
 
-- **General**
+- **General and generalizable**
 
-  Silero Stress was trained on a large dataset, containing ~4M known words and word-forms and ~120M annotated sentences with homographs.
-
-- **Highly Portable**
-
-  Silero Stress reaps benefits from the rich ecosystem built around **PyTorch**.
+  Silero Stress was trained on a large dataset, containing ~4M known words and word forms and ~120M annotated sentences with homographs. It also works with unknown (and invented) words with 60-70% accuracy.
 
 - **No Strings Attached**
 
@@ -101,6 +97,7 @@ print(accentor(sample_sent))
 
 - [Quality Metrics](https://github.com/snakers4/silero-stress/wiki/Quality-Metrics)
 - [Performance Metrics](https://github.com/snakers4/silero-stress/wiki/Performance-Metrics)
+- [Homograph List](https://github.com/snakers4/silero-stress/wiki/Homograph-List)
 - [Further reading](https://github.com/snakers4/silero-models#further-reading)
 - [FAQ](https://github.com/snakers4/silero-stress/wiki/FAQ)
 
