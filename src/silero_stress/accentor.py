@@ -8,14 +8,16 @@ def load_accentor():
 
     try:
         import importlib_resources as impresources
-        model_file_path = str(impresources.files(package_path).joinpath(model_name))
-    except:
+    except ImportError:
         from importlib import resources as impresources
-        try:
-            with impresources.path(package_path, model_name) as f:
-                model_file_path = f
-        except:
-            model_file_path = str(impresources.files(package_path).joinpath(model_name))
+
+    if hasattr(impresources, 'files'):
+        # Python 3.9+
+        model_file_path = str(impresources.files(package_path).joinpath(model_name))
+    else:
+        # Python 3.7-3.8
+        with impresources.path(package_path, model_name) as f:
+            model_file_path = str(f)
 
     accentor = torch.package.PackageImporter(model_file_path).load_pickle("accentor_models", "accentor")
     quantized_weight = accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data.clone()
