@@ -82,6 +82,10 @@ print(accentor(sample_sent))
 
    Published under permissive license (MIT) Silero Stress has zero strings attached - no telemetry, no keys, no registration, no built-in expiration, no keys or vendor lock.
 
+- **Minimal and minified**
+
+   Code bloat, unnecessary dependencies and libraries are removed. Silero Stress depends only on PyTorch as a neural engine and the Python standard library.
+
 <br/>
 
 <h2 align="center">Typical Use Cases</h2>
