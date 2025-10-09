@@ -43,7 +43,7 @@
 ```python3
 from silero_stress import load_accentor
 accentor = load_accentor()
-sample_sent = "Привет, меня зовут Лева Игоревич Королев. И я уже в принципе готов открыть все ваши замки любой сложности!"
+sample_sent = "Меня зовут Лева Королев. Я из готов. И я уже готов открыть все ваши замки любой сложности!"
 print(accentor(sample_sent))
 ```
 
@@ -53,7 +53,7 @@ import torch
 torch.set_num_threads(1)
 
 accentor = torch.hub.load(repo_or_dir='snakers4/silero-stress)
-sample_sent = "Привет, меня зовут Лева Игоревич Королев. И я уже в принципе готов открыть все ваши замки любой сложности!"
+sample_sent = "Меня зовут Лева Королев. Я из готов. И я уже готов открыть все ваши замки любой сложности!"
 print(accentor(sample_sent))
 ```
 
