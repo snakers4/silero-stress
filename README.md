@@ -107,7 +107,7 @@ print(accentor(sample_sent))
 
 Try our models, create an [issue](https://github.com/snakers4/silero-stress/issues/new), start a [discussion](https://github.com/snakers4/silero-stress/discussions/new), join our telegram [chat](https://t.me/silero_speech), [email](mailto:hello@silero.ai) us, read our [news](https://t.me/silero_news).
 
-Please see our [wiki](https://github.com/snakers4/silero-models/wiki) for relevant information and [email](mailto:hello@silero.ai) us directly.
+Please see our [wiki](https://github.com/snakers4/silero-stress/wiki) for relevant information and [email](mailto:hello@silero.ai) us directly.
 
 **Citations**
 
