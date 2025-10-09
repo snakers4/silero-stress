@@ -13,7 +13,7 @@
 <br/>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/f2940867-0a51-4bdb-8c14-1129d3c44e64" />
+  <img alt="metrics_histogram" src="https://github.com/user-attachments/assets/d9fca492-e866-449d-b980-c4796085f25a" />
 </p>
 
 
@@ -64,11 +64,11 @@ print(accentor(sample_sent))
 
 - **Wide coverage**
 
-  Silero Stress covers ~4M known Russian words and word forms with 100% accuracy. It also covers ~2K homographs with F1 score of 0.83, weighted per-word accuracy of 90% and total dataset accuracy of 90%.
+  Silero Stress covers ~4M known Russian words and word forms with 100% accuracy. It also covers ~2K homographs with F1 score of 0.85, per-word accuracy of 91% and total dataset accuracy of 93%.
 
 - **Fast**
 
-  On 1 CPU thread every ordinary word takes ~1ms to process, every sentence with one homograph takes ~20ms.  
+  On 1 CPU thread every ordinary word takes ~0.5ms to process, every 400-char sentence with two homographs (common prod case) takes ~30ms.  
 
 - **Lightweight and portable**
 
@@ -99,7 +99,6 @@ print(accentor(sample_sent))
 - [Performance Metrics](https://github.com/snakers4/silero-stress/wiki/Performance-Metrics)
 - [Homograph List](https://github.com/snakers4/silero-stress/wiki/Homograph-List)
 - [Further reading](https://github.com/snakers4/silero-models#further-reading)
-- [FAQ](https://github.com/snakers4/silero-stress/wiki/FAQ)
 
 <br/>
 <h2 align="center">Get In Touch</h2>
