@@ -45,6 +45,7 @@ from silero_stress import load_accentor
 accentor = load_accentor()
 sample_sent = "Меня зовут Лева Королев. Я из готов. И я уже готов открыть все ваши замки любой сложности!"
 print(accentor(sample_sent))
+# Мен+я зов+ут Л+ёва Корол+ёв. +Я +из г+отов. +И +я уж+е гот+ов откр+ыть вс+е в+аши замк+и люб+ой сл+ожности!
 ```
 
 **Using torch.hub**:
@@ -55,6 +56,7 @@ torch.set_num_threads(1)
 accentor = torch.hub.load(repo_or_dir='snakers4/silero-stress)
 sample_sent = "Меня зовут Лева Королев. Я из готов. И я уже готов открыть все ваши замки любой сложности!"
 print(accentor(sample_sent))
+# Мен+я зов+ут Л+ёва Корол+ёв. +Я +из г+отов. +И +я уж+е гот+ов откр+ыть вс+е в+аши замк+и люб+ой сл+ожности!
 ```
 
 <br/>
