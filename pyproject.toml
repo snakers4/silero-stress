@@ -31,3 +31,6 @@ classifiers = [
 dependencies = [
   "torch>=1.12.0",
 ]
+[project.urls]
+Homepage = "https://github.com/snakers4/silero-stress"
+Issues = "https://github.com/snakers4/silero-stress/issues"
