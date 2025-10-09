@@ -27,7 +27,7 @@
 
   System requirements to run python examples on `x86-64` systems:
   
-  - `python 3.8+`;
+  - `python 3.10+`;
   - 1G+ RAM;
   - A modern CPU with AVX, AVX2, AVX-512 or AMX instruction sets.
 
