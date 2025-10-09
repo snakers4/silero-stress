@@ -72,7 +72,7 @@ print(accentor(sample_sent))
 
 - **Lightweight and portable**
 
-  Total package is about 50MB in size, boasting ~1,000x compression ratio.
+  Total package is about 50MB in size, boasting ~400x compression ratio.
 
 - **General and generalizable**
 
