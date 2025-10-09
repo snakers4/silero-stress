@@ -13,7 +13,7 @@
 <br/>
 
 <p align="center">
-  <img alt="metrics_histogram" src="https://github.com/user-attachments/assets/d9fca492-e866-449d-b980-c4796085f25a" />
+  <img alt="metrics_histogram" src="https://github.com/user-attachments/assets/a9f7f5ea-e322-4028-93d8-160714d568be" />
 </p>
 
 
