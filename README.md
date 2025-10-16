@@ -59,6 +59,13 @@ print(accentor(sample_sent))
 # Мен+я зов+ут Л+ёва Корол+ёв. +Я +из г+отов. +И +я уж+е гот+ов откр+ыть вс+е в+аши замк+и люб+ой сл+ожности!
 ```
 
+For some configuration tips refer to [Configuration](https://github.com/snakers4/silero-stress/wiki/Configuration) wiki page.
+
+You can:
+- Use CPU/GPU version;
+- Use flags to customize word stress / `ё` placements;
+- Use common accentor and homosolver independently.
+
 <br/>
 
 <h2 align="center">Key Features</h2>
