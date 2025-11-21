@@ -2,8 +2,8 @@ import torch
 torch.set_num_threads(1)
 
 
-def load_accentor():
-    model_name = 'accentor.pt'
+def load_accentor(lang='ru'):
+    model_name = 'accentor.pt' if lang == 'ru' else 'accentor-ukr.pt'
     package_path = "silero_stress.data"
 
     try:
@@ -20,8 +20,17 @@ def load_accentor():
             model_file_path = str(f)
 
     accentor = torch.package.PackageImporter(model_file_path).load_pickle("accentor_models", "accentor")
-    quantized_weight = accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data.clone()
-    restored_weights = accentor.homosolver.model.bert.scale * (quantized_weight - accentor.homosolver.model.bert.zero_point)
-    accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data = restored_weights
+
+    if lang == 'ru':
+        quantized_weight = accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data.clone()
+        restored_weights = accentor.homosolver.model.bert.scale * (quantized_weight - accentor.homosolver.model.bert.zero_point)
+        accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data = restored_weights
+    elif lang == 'ukr':
+        quantized_weight = accentor.accentor.model.embedding.weight.data.clone()
+        restored_weights = accentor.accentor.model.scale * (quantized_weight - accentor.accentor.model.zero_point)
+        accentor.accentor.model.embedding.weight.data = restored_weights
+    else:
+        print(f'Unsupported language {lang}. Must be in ["ru", "ukr"]')
+        return None
 
     return accentor
