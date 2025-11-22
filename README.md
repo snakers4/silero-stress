@@ -8,7 +8,36 @@
 <h1 align="center">Silero Stress</h1>
 <br/>
 
-**Silero Stress** — pre-trained enterprise-grade automated stress and homograph disambiguation for the Russian language. Also we have supplementary modules for [19 another languages](https://github.com/snakers4/silero-stress/wiki/Other-Languages).
+**Silero Stress** — pre-trained enterprise-grade automated stress and homograph disambiguation for the Russian language.
+
+For 19 other languages please refer [here](https://github.com/snakers4/silero-stress/wiki/Other-Languages).
+
+<details>
+  <summary>Other languages:</summary>
+  
+  - `ukr`
+  - `bel`
+  - `sah`
+  - `aze_lat`
+  - `aze_cyr`
+  - `hye`
+  - `bak`
+  - `kat`
+  - `kbd`
+  - `kaz`
+  - `xal`
+  - `kir`
+  - `mdf`
+  - `tgk`
+  - `tat`
+  - `udm`
+  - `uzb_lat`
+  - `uzb_cyr`
+  - `kjh`
+  - `chv`
+  - `erz`
+  
+</details>
 
 <br/>
 
@@ -98,7 +127,7 @@ You can:
 
 - **Other Languages**
 
-   We also released `Ukrainian` accentor (without homographs) and some vocabularies for `another 18 languages`. Check our [wiki](https://github.com/snakers4/silero-stress/wiki/Other-Languages) for details.
+   We also released `uk` accentor (without homographs) and some vocabularies for `another 18 languages`. Check our [wiki](https://github.com/snakers4/silero-stress/wiki/Other-Languages) for details.
 
 <br/>
 
