@@ -2,10 +2,21 @@ import re
 import gzip
 
 
+supported_langs = ['aze_cyr', 'aze_lat',
+                   'uzb_cyr', 'uzb_lat',
+                   'bak', 'bel', 'chv',
+                   'erz', 'hye', 'kat',
+                   'kaz', 'kbd', 'kir',
+                   'kjh', 'mdf', 'sah',
+                   'tat', 'tgk', 'udm',
+                   'xal']
+
+
 class SimpleAccentor():
     def __init__(self, lang=None):
-        if lang not in ["bel", "kir", "aze", "chv", "tat", "bak", "kjh", "kaz", "uzb", "hye", "kat", "sah", "kbd", "xal", "mdf", "tgk", "udm", "uzb", "chv", "erz"]:
-            raise ValueError(f'Unsupported language "{lang}". Must be in ["bel", "kir", "aze", "chv", "tat", "bak", "kjh", "kaz", "uzb", "hye", "kat", "kbd", "xal", "mdf", "tgk", "udm", "uzb", "chv", "erz"]')
+        
+        if lang not in supported_langs:
+            raise ValueError(f'Unsupported language "{lang}". Must be in {supported_langs}')
 
         package_path = "silero_stress.data.vocabularies"
 
@@ -32,9 +43,12 @@ class SimpleAccentor():
         if lang == "kir":
             alpha = "абвгдежзийклмнопрстуфхцчшыьэюяёңүө"
             vowels = "аеиоуыэюяёүө"
-        if lang == "aze":
-            alpha = " abcdefghijklmnopqrstuvxyzçöüğışə̇"
-            vowels = "aeiouöüıə"
+        if lang == 'aze_cyr':
+            alpha = "абвгғдеәжзиыјкҝлмноөпрстуүфхһчҹш'"
+            vowels = 'аеәиыоөуү'
+        if lang == 'aze_lat':
+            alpha = "abcçdeәfgğhxıijkqlmnoöprsştuüvyz'"
+            vowels = 'aeәıioöuü'
         if lang == "chv":
             alpha = "абвгдежзийклмнопрстуфхцчшщъыьэюяёҫӑӗӳ"
             vowels = "аеиоуыэюяёӑӗӳ"
@@ -77,9 +91,12 @@ class SimpleAccentor():
         if lang == "udm":
             alpha = "абвгдежзийклмнопрстуфхцчшщъыьэюяёӝӟӥӧӵ"
             vowels = "аеиоуыэюяёӥӧ"
-        if lang == "uzb":
-            alpha = "абвгдежзийклмнопрстуфхцчшъьэюяёўғқҳ"
-            vowels = "аеиоуэюяёў"
+        if lang == "uzb_cyr":
+            alpha = "абдеэфгҳижклмнопқрстувхйзўғшчнгъ"
+            vowels = "аеиоуў"
+        if lang == "uzb_lat":
+            alpha = "abcdefghijklmnopqrstuvxyz'"
+            vowels = "aeiou"
         if lang == "chv":
             alpha = "абвгдежзийклмнопрстуфхцчшщъыьэюяёҫӑӗӳ"
             vowels = "аеиоуыэюяёӑӗӳ"
