@@ -127,7 +127,7 @@ You can:
 
 - **Other Languages**
 
-   We also released `uk` accentor (without homographs) and some vocabularies for `another 18 languages`. Check our [wiki](https://github.com/snakers4/silero-stress/wiki/Other-Languages) for details.
+   We also released `ukr` accentor (without homographs) and some vocabularies for `another 18 languages`. Check our [wiki](https://github.com/snakers4/silero-stress/wiki/Other-Languages) for details.
 
 <br/>
 
