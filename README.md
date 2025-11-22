@@ -8,7 +8,7 @@
 <h1 align="center">Silero Stress</h1>
 <br/>
 
-**Silero Stress** — pre-trained enterprise-grade automated stress and homograph disambiguation for the Russian language.
+**Silero Stress** — pre-trained enterprise-grade automated stress and homograph disambiguation for the Russian language. Also we have supplementary modules for [19 another languages](https://github.com/snakers4/silero-stress/wiki/Other-Languages).
 
 <br/>
 
@@ -95,6 +95,10 @@ You can:
 - **Minimal and minified**
 
    Code bloat, unnecessary dependencies and libraries are removed. Silero Stress depends only on PyTorch as a neural engine and the Python standard library.
+
+- **Other Languages**
+
+   We also released `Ukrainian` accentor (without homographs) and some vocabularies for `another 18 languages`. Check our [wiki](https://github.com/snakers4/silero-stress/wiki/Other-Languages) for details.
 
 <br/>
 
