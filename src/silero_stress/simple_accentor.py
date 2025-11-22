@@ -64,9 +64,6 @@ class SimpleAccentor():
         if lang == "kaz":
             alpha = "абвгдежзийклмнопрстуфхцчшщыьэюяіғқңүұһәө"
             vowels = "аеиоуыэюяіүұәө"
-        if lang == "uzb":
-            alpha = "абвгдежзийклмнопрстуфхцчшъьэюяёўғқҳ"
-            vowels = "аеиоуэюяёў"
         if lang == "hye":
             alpha = "աբգդեզէըթժիլխծկհձղճմյնշոչպջռսվտրցւփքօֆև"
             vowels = "աեէըիուօ"
@@ -152,7 +149,7 @@ class SimpleAccentor():
                 stress_idx = vowel_ids[0]
             else:
                 stress_idx = vowel_ids[len(vowel_ids) - 2]
-        elif self.lang == 'mdf':                                # "mdf" language - stress last syllable
+        elif self.lang in ['mdf', 'erz']:                       # "mdf" / "erz" languages - stress first syllable
             stress_idx = vowel_ids[0]
         elif self.lang == 'bel':                                # "bel" language - stress could be anywhere, we don't know anything about it
             stress_idx = None
