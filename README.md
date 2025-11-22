@@ -12,33 +12,6 @@
 
 For 19 other languages please refer [here](https://github.com/snakers4/silero-stress/wiki/Other-Languages).
 
-<details>
-  <summary>Other languages:</summary>
-  
-  - `ukr`
-  - `bel`
-  - `sah`
-  - `aze_lat`
-  - `aze_cyr`
-  - `hye`
-  - `bak`
-  - `kat`
-  - `kbd`
-  - `kaz`
-  - `xal`
-  - `kir`
-  - `mdf`
-  - `tgk`
-  - `tat`
-  - `udm`
-  - `uzb_lat`
-  - `uzb_cyr`
-  - `kjh`
-  - `chv`
-  - `erz`
-  
-</details>
-
 <br/>
 
 <p align="center">
