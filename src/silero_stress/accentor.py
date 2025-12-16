@@ -3,11 +3,11 @@ torch.set_num_threads(1)
 
 
 def load_accentor(lang='ru'):
-    if lang not in ['ru', 'ukr']:
-        print(f'Unsupported language {lang}. Must be in ["ru", "ukr"]')
+    if lang not in ['ru', 'ukr', 'bel']:
+        print(f'Unsupported language {lang}. Must be in ["ru", "ukr", "bel"]')
         return None
 
-    model_name = 'accentor.pt' if lang == 'ru' else 'accentor-ukr.pt'
+    model_name = 'accentor.pt' if lang == 'ru' else f'accentor-{lang}.pt'
     package_path = "silero_stress.data"
 
     try:
@@ -29,7 +29,7 @@ def load_accentor(lang='ru'):
         quantized_weight = accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data.clone()
         restored_weights = accentor.homosolver.model.bert.scale * (quantized_weight - accentor.homosolver.model.bert.zero_point)
         accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data = restored_weights
-    elif lang == 'ukr':
+    elif lang in ['ukr', 'bel']:
         quantized_weight = accentor.accentor.model.embedding.weight.data.clone()
         restored_weights = accentor.accentor.model.scale * (quantized_weight - accentor.accentor.model.zero_point)
         accentor.accentor.model.embedding.weight.data = restored_weights
