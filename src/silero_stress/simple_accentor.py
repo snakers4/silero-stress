@@ -120,7 +120,12 @@ class SimpleAccentor():
     def __call__(self, sentence, words_to_ignore=None):
         if type(words_to_ignore) not in [type(None), list, set, tuple]:
             raise ValueError(f"`words_to_ignore` should be either None or list/set/tuple")
-        words_to_ignore = words_to_ignore if words_to_ignore is not None else []
+        words_to_ignore = set(words_to_ignore) if words_to_ignore is not None else set()
+
+        # Workaround for some popular ssml tags.
+        if self.lang in ['aze_lat', 'uzb_lat']:
+            for word in ['speak', 'prosody', 'break', 'pitch', 'rate', 'slow', 'fast', 'medium', 'high', 'low']:
+                words_to_ignore.update([word])
 
         # We are restoring stress in entire sentence, so there is some ugly processing.
         # If you need only vocab, refer to _accentuate_vocab() function
