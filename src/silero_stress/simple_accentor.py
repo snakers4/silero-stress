@@ -47,8 +47,14 @@ class SimpleAccentor():
             alpha = "абвгғдеәжзиыјкҝлмноөпрстуүфхһчҹш'"
             vowels = 'аеәиыоөуү'
         if lang == 'aze_lat':
-            alpha = "abcçdeәfgğhxıijkqlmnoöprsştuüvyz'"
-            vowels = 'aeәıioöuü'
+            # The letter "w" is included here only to support English words in `words_to_ignore`.
+            # Without it, the preprocessing step treats "w" as punctuation and splits words containing it (e.g., "slow", "tower").
+            # This would prevent those words from being correctly ignored. 
+            # Although "w" is not part of the standard Azerbaijani Latin alphabet, we add it to ensure proper handling of such cases.
+            # 
+            # If you use your own preprocessing, feel free to remove "w" from aze_lat `alpha`.
+            alpha = "abcçdeəfgğhxıijkqlmnoöprsştuüvyzw'"
+            vowels = 'aeəıioöuü'
         if lang == "chv":
             alpha = "абвгдежзийклмнопрстуфхцчшщъыьэюяёҫӑӗӳ"
             vowels = "аеиоуыэюяёӑӗӳ"
@@ -92,7 +98,13 @@ class SimpleAccentor():
             alpha = "абдеэфгҳижклмнопқрстувхйзўғшчнгъ"
             vowels = "аеиоуў"
         if lang == "uzb_lat":
-            alpha = "abcdefghijklmnopqrstuvxyz'"
+            # The letter "w" is included here only to support English words in `words_to_ignore`.
+            # Without it, the preprocessing step treats "w" as punctuation and splits words containing it (e.g., "slow", "tower").
+            # This would prevent those words from being correctly ignored. 
+            # Although "w" is not part of the standard Uzbek Latin alphabet, we add it to ensure proper handling of such cases.
+            #
+            # If you use your own preprocessing, feel free to remove "w" from uzb_lat `alpha`.
+            alpha = "abcdefghijklmnopqrstuvxyzw'"
             vowels = "aeiou"
         if lang == "chv":
             alpha = "абвгдежзийклмнопрстуфхцчшщъыьэюяёҫӑӗӳ"
@@ -100,16 +112,20 @@ class SimpleAccentor():
         if lang == "erz":
             alpha = "абвгдежзийклмнопрстуфхцчшщъыьэюяё"
             vowels = "аеиоуыэюяё"
-                
-        alpha = sorted(set(alpha + alpha.upper()))
+
+        alpha = ''.join(sorted(set(alpha + alpha.upper())))
         self.re_cond =  fr'[^{alpha}]'
         self.vowels = vowels
 
-    def __call__(self, sentence):
+    def __call__(self, sentence, words_to_ignore=None):
+        if type(words_to_ignore) not in [type(None), list, set, tuple]:
+            raise ValueError(f"`words_to_ignore` should be either None or list/set/tuple")
+        words_to_ignore = words_to_ignore if words_to_ignore is not None else []
+
         # We are restoring stress in entire sentence, so there is some ugly processing.
         # If you need only vocab, refer to _accentuate_vocab() function
         # If you want to check rules, refer to _accentuate_oov() function
-        raw_tokens, clean_tokens, prediction_mask = self._tokenize(sentence)
+        raw_tokens, clean_tokens, prediction_mask = self._tokenize(sentence, words_to_ignore=words_to_ignore)
 
         accented_sentence = []
         for raw_word, clean_word, need_processing in zip(raw_tokens, clean_tokens, prediction_mask):
@@ -128,7 +144,7 @@ class SimpleAccentor():
                 accented_sentence.append(self._accentuate_vocab(clean_word=clean_word, raw_word=raw_word))
                 continue
             else:
-                accented_sentence.append(self._accentuate_oov(clean_word=clean_word, raw_word=raw_word))
+                accented_sentence.append(self._accentuate_oov(raw_word=raw_word))
 
         return ''.join(accented_sentence)
 
@@ -137,8 +153,8 @@ class SimpleAccentor():
         accentuated_word = raw_word[:exc_stress] + self.stress_token + raw_word[exc_stress:]
         return accentuated_word
 
-    def _accentuate_oov(self, clean_word, raw_word):
-        vowel_ids = [i for i, c in enumerate(clean_word) if c in self.vowels]
+    def _accentuate_oov(self, raw_word):
+        vowel_ids = [i for i, c in enumerate(raw_word.lower()) if c in self.vowels]
         if len(vowel_ids) == 0:
             return raw_word
 
@@ -161,12 +177,12 @@ class SimpleAccentor():
         else:
             return raw_word[:stress_idx] + self.stress_token + raw_word[stress_idx:]
 
-    def _tokenize(self, sentence):
+    def _tokenize(self, sentence, words_to_ignore):
         tokens = []
         model_inputs = []
         prediction_mask = []
 
-        for word in re.split(r'(\s+)', sentence):
+        for word in re.split(r'([\s.,!?;:<>=()/\\]+)', sentence):
             parts = word.split('-')
 
             if len(parts) == 1:
@@ -174,10 +190,10 @@ class SimpleAccentor():
                 cur_prediction_mask = [True]
             else:
                 cur_tokens = [part + '-' for part in parts[:-1]] + [parts[-1]]
-                cur_prediction_mask = [True for p in parts[:-1]]
+                cur_prediction_mask = [True for p in parts]
 
             cur_model_inputs = [re.sub(self.re_cond, '', token.lower()) for token in cur_tokens]
-            cur_prediction_mask = [(len(x) > 0) & mask for x, mask in zip(cur_model_inputs, cur_prediction_mask)]
+            cur_prediction_mask = [((len(x) > 0) and (x not in words_to_ignore)) & mask for x, mask in zip(cur_model_inputs, cur_prediction_mask)]
 
             tokens.extend(cur_tokens)
             model_inputs.extend(cur_model_inputs)
