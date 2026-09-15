@@ -15,9 +15,8 @@ For 19 other languages please refer [here](https://github.com/snakers4/silero-st
 <br/>
 
 <p align="center">
-  <img alt="metrics_histogram" src="https://github.com/user-attachments/assets/a9f7f5ea-e322-4028-93d8-160714d568be" />
+  <img alt="metrics_histogram" src="https://github.com/user-attachments/assets/9e8bf76b-5476-4d7f-8298-4b436906c4a2" />
 </p>
-
 
 <br/>
 
@@ -67,8 +66,8 @@ For some configuration tips refer to [Configuration](https://github.com/snakers4
 You can:
 - Use CPU/GPU version;
 - Use flags to customize word stress / `ё` placements;
-- Use common accentor and homosolver independently.
-
+- Use common accentor and homosolver independently;
+- Connect your own regex/phrases to homosolver to adjust predictions, or solve OOV homographs;
 <br/>
 
 <h2 align="center">Key Features</h2>
