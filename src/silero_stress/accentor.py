@@ -23,7 +23,8 @@ def load_accentor(lang='ru'):
         with impresources.path(package_path, model_name) as f:
             model_file_path = str(f)
 
-    accentor = torch.package.PackageImporter(model_file_path).load_pickle("accentor_models", "accentor")
+    with open(model_file_path, 'rb') as model_file:
+        accentor = torch.package.PackageImporter(model_file).load_pickle("accentor_models", "accentor")
 
     if lang == 'ru':
         quantized_weight = accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data.clone()
