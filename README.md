@@ -75,7 +75,7 @@ You can:
 
 - **Wide coverage**
 
-  Silero Stress covers ~4M known Russian words and word forms with 100% accuracy. It also covers ~2K homographs with F1 score of 0.85, per-word accuracy of 91% and total dataset accuracy of 93%.
+  Silero Stress covers ~4M known Russian words and word forms with 100% accuracy. It also covers ~2.2K homographs with F1 score of 0.92, per-word accuracy of 94% and total dataset accuracy of 94%.
 
 - **Fast**
 
@@ -87,7 +87,7 @@ You can:
 
 - **General and generalizable**
 
-  Silero Stress was trained on a large dataset, containing ~4M known words and word forms and ~120M annotated sentences with homographs. It also works with unknown (and invented) words with 60-70% accuracy.
+  Silero Stress was trained on a large dataset, containing ~4M known words and word forms and ~200M annotated sentences with homographs. It also works with unknown (and invented) words with 60-70% accuracy. You can also add regex/phrases to homosolver to adjust predictions.
 
 - **No Strings Attached**
 
