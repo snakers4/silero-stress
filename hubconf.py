@@ -15,7 +15,8 @@ def silero_stress(lang='ru'):
         print(f'Wrong language {lang}. Must be in ["ru", "ukr", "bel"].')
     model_name = 'accentor.pt' if lang == 'ru' else f'accentor-{lang}.pt'
     package_path = os.path.join(os.path.dirname(__file__), 'src', 'silero_stress', 'data', model_name)
-    accentor = torch.package.PackageImporter(package_path).load_pickle("accentor_models", "accentor")
+    with open(package_path, 'rb') as package_file:
+        accentor = torch.package.PackageImporter(package_file).load_pickle("accentor_models", "accentor")
     if lang == 'ru':
         quantized_weight = accentor.homosolver.model.bert.embeddings.word_embeddings.weight.data.clone()
         restored_weights = accentor.homosolver.model.bert.scale * (quantized_weight - accentor.homosolver.model.bert.zero_point)
